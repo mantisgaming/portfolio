@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Svelte",
+            "command": "npm",
+            "type": "shell",
+            "args": [
+                "run-script",
+                "build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/svelte-project",
+            },
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": "build"
+        }
+    ]
+}
