@@ -7,7 +7,7 @@ export default defineConfig({
   base: "./",
   appType: "spa",
   build: {
-    cssMinify: true
+    minify: true
   },
   root: "./site"
 })
