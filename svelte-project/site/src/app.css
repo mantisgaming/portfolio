@@ -62,7 +62,10 @@ h1 {
   }
 }
 
-
 .no-select {
   user-select: none;
+}
+
+.spacer {
+  flex-grow: 1;
 }
