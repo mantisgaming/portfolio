@@ -83,7 +83,8 @@ deploy-job: # This job runs in the deploy stage.
   stage: deploy # It only runs when *both* jobs in the test stage complete successfully.
   environment: production
   variables:
-    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
+    CLOUDFLARE_API_TOKEN: $CF_API_TOKEN
+    CLOUDFLARE_ACCOUNT_ID: $CF_ACCOUNT_ID
   script:
     - echo "Deploying application..."
     - npx wrangler deploy --env="$APP_ENV"
