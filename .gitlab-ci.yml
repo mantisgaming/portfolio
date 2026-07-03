@@ -82,7 +82,9 @@ lint-test-job: # This job also runs in the test stage.
 deploy-job: # This job runs in the deploy stage.
   stage: deploy # It only runs when *both* jobs in the test stage complete successfully.
   environment: production
+  variables:
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
   script:
     - echo "Deploying application..."
-    - npx wrangler deploy -e="$ENVIRONMENT" --api-token $CLOUDFLARE_API_TOKEN
+    - npx wrangler deploy --env="$APP_ENV"
     - echo "Application successfully deployed."
