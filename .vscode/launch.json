@@ -8,7 +8,7 @@
 			"name": "Svelte Dev Server",
 			"request": "launch",
 			"runtimeArgs": ["run-script", "dev"],
-			"cwd": "${workspaceFolder}/svelte-project",
+			"cwd": "${workspaceFolder}",
 			"runtimeExecutable": "npm",
 			"skipFiles": ["<node_internals>/**"],
 			"type": "node",

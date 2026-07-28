@@ -1,3 +1,5 @@
-<h1>Max Allen</h1>
-<p>Technical Game Programmer</p>
-<p>Portfolio construction in progress...</p>
+<script lang="ts">
+	import PersonalCard from './_components/personalCard.svelte';
+</script>
+
+<PersonalCard />
