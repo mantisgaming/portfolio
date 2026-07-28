@@ -1,6 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import Nav from './_components/nav.svelte';
+	import Nav from '$lib/components/nav.svelte';
 
 	let { children } = $props();
 </script>
@@ -23,9 +23,10 @@
 	}
 
 	:global(body) {
-		--bg-color: #818181;
+		--bg-color: #a1a1a1;
+		--color: #1a1a1a;
 		--header-bg-color: #3a3a3a;
-		--header-color: #d3d3d3;
+		--header-color: #ececec;
 		--page-width: 90%;
 
 		--columns: 1;
@@ -47,8 +48,13 @@
 		background-color: var(--bg-color);
 	}
 
+	:global(a, p) {
+		color: var(--color);
+		font-weight: bold;
+	}
+
 	main {
 		width: var(--page-width);
-		margin: 0 calc((100vw - var(--page-width)) / 2);
+		margin: 0 auto;
 	}
 </style>

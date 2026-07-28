@@ -7,6 +7,7 @@
 		<h1><a href={resolve('/')}>Max Allen</a></h1>
 		<p>Systems Programmer</p>
 		<div class="spacer"></div>
+		<a href={resolve('/about')}>About</a>
 		<a href={resolve('/resume')}>Resume</a>
 	</div>
 </nav>
@@ -19,7 +20,9 @@
 		justify-content: center;
 
 		background-color: var(--header-bg-color);
-		color: var(--header-color);
+		* {
+			color: var(--header-color);
+		}
 
 		> div {
 			display: flex;

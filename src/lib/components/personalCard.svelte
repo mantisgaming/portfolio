@@ -20,7 +20,6 @@
 <style lang="scss">
 	.card {
 		background-color: var(--header-bg-color);
-		color: var(--header-color);
 		border-radius: 2rem;
 		padding: 2rem;
 		margin: 3rem auto;
@@ -32,6 +31,10 @@
 		gap: 2rem;
 
 		max-width: 1000px;
+
+		* {
+			color: var(--header-color);
+		}
 
 		@media screen and (min-width: 750px) {
 			flex-direction: row;
