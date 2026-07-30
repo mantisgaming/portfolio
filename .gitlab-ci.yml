@@ -16,19 +16,6 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-workflow:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main"
-      variables:
-        APP_ENV: ''
-      when: always
-    - if: $CI_COMMIT_BRANCH == "staging"
-      variables:
-        APP_ENV: 'staging'
-      when: always
-    - if: $CI_COMMIT_BRANCH # Runs on all other feature branches
-      when: never
-
 image: node:latest
 
 stages: # List of stages for jobs, and their order of execution
@@ -77,6 +64,17 @@ deploy-job: # This job runs in the deploy stage.
   variables:
     CLOUDFLARE_API_TOKEN: $CF_API_TOKEN
     CLOUDFLARE_ACCOUNT_ID: $CF_ACCOUNT_ID
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      variables:
+        APP_ENV: ''
+      when: always
+    - if: $CI_COMMIT_BRANCH == "staging"
+      variables:
+        APP_ENV: 'staging'
+      when: always
+    - if: $CI_COMMIT_BRANCH # Runs on all other feature branches
+      when: never
   script:
     - echo "Deploying application..."
     - npx wrangler deploy --env="$APP_ENV"
