@@ -41,7 +41,7 @@
 		color: var(--color);
 		font-weight: bold;
 	}
-	
+
 	main {
 		width: var(--page-width);
 		margin: 0 auto;
