@@ -1,5 +1,5 @@
 <script lang="ts">
-	import portrait from '$lib/assets/Portrait.jpg';
+	import portrait from '$lib/assets/portrait.jpg';
 </script>
 
 <div class="card">
@@ -36,23 +36,10 @@
 			color: var(--header-color);
 		}
 
-		@media screen and (min-width: 750px) {
-			flex-direction: row;
-		}
-
 		img {
 			width: 100%;
 			aspect-ratio: 1/1;
 			border-radius: 1rem;
-
-			@media screen and (min-width: 750px) {
-				width: unset;
-				height: 30vh;
-			}
-
-			@media screen and (min-width: 1200px) {
-				height: 50vh;
-			}
 		}
 	}
 
@@ -65,17 +52,6 @@
 	.row {
 		h1 {
 			margin-bottom: 0;
-		}
-
-		@media screen and (min-width: 460px) and (max-width: 750px), screen and (min-width: 1200px) {
-			display: flex;
-			flex-direction: row;
-			align-items: baseline;
-			justify-content: space-between;
-			gap: 1rem;
-			h1 {
-				margin-bottom: unset;
-			}
 		}
 
 		+ * {

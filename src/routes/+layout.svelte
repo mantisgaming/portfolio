@@ -7,6 +7,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<script src="https://kit.fontawesome.com/03ca4d4b08.js" crossorigin="anonymous"></script>
 </svelte:head>
 
 <Nav />
@@ -19,6 +20,9 @@
 		font-family:
 			'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
 			sans-serif;
+	}
+
+	:global(*) {
 		box-sizing: border-box;
 	}
 
@@ -29,21 +33,6 @@
 		--header-color: #ececec;
 		--page-width: 90%;
 
-		--columns: 1;
-
-		@media screen and (min-width: 750px) {
-			--page-width: 700px;
-		}
-
-		@media screen and (min-width: 1200px) {
-			--page-width: 1100px;
-			--columns: 3;
-		}
-
-		@media screen and (min-width: 1500px) {
-			--page-width: 1400px;
-		}
-
 		margin: 0;
 		background-color: var(--bg-color);
 	}
@@ -52,7 +41,7 @@
 		color: var(--color);
 		font-weight: bold;
 	}
-
+	
 	main {
 		width: var(--page-width);
 		margin: 0 auto;
