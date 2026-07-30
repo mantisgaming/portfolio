@@ -4,6 +4,10 @@
 	const resumePath: string = '/max-allen-resume.pdf';
 </script>
 
+<svelte:head>
+	<title>Max Allen | Resume</title>
+</svelte:head>
+
 <div class="container">
 	<div class="row">
 		<a href={asset('/max-allen-resume.pdf')} target="_blank">Open in new tab</a>
