@@ -1,41 +1,28 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
+	import type { ProjectData } from '$lib/types/projectData';
 
 	const {
 		href,
-		gameTitle,
-		teamSize,
-		thumbnail,
-		description,
-		tags
+		project
 	}: {
 		href?: Pathname;
-		gameTitle: string;
-		teamSize: number;
-		thumbnail: {
-			src: string;
-			alt: string;
-		};
-		description: string;
-		tags: {
-			label: string;
-			color: string;
-		}[];
+		project: ProjectData;
 	} = $props();
 </script>
 
 <svelte:element this={href ? 'a' : 'div'} class="card" href={href ? resolve(href) : undefined}>
-	<img src={thumbnail?.src} alt={thumbnail?.alt} />
+	<img src={project.thumbnail?.src} alt={project.thumbnail?.alt} />
 	<div class="body">
 		<div class="row" style:justify-content="space-between">
-			<h2>{gameTitle}</h2>
-			<p>Team Size: {teamSize}</p>
+			<h2>{project.title}</h2>
+			<p>Team Size: {project.teamSize}</p>
 		</div>
-		<p>{description}</p>
-		{#if tags.length > 0}
+		<p>{project.brief}</p>
+		{#if project.tags.length > 0}
 			<div class="row">
-				{#each tags as tag (tag.label)}
+				{#each project.tags as tag (tag.label)}
 					<p class="tag" style:--tag-color={tag.color}>{tag.label}</p>
 				{/each}
 			</div>
@@ -61,6 +48,7 @@
 		}
 
 		text-decoration: none;
+		user-select: none;
 
 		transition-duration: 0.25s;
 
