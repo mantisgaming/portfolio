@@ -39,7 +39,6 @@
 
 	:global(a, p) {
 		color: var(--color);
-		font-weight: bold;
 	}
 
 	main {

@@ -8,7 +8,27 @@
 </svelte:head>
 
 <GameCard
+	// href="/project/fishy-missile"
 	gameTitle="Fishy Missile"
 	teamSize={7}
 	thumbnail={{ src: fishyMissileIcon, alt: 'Fishy Missile icon' }}
+	description="Fishy Missile is a casual arcade mobile game where players use tilt controls to collect scrap from the ocean to build a rocket and blow up the moon."
+	tags={[
+		{
+			color: '#37a600',
+			label: 'Published'
+		},
+		{
+			color: '#0063bf',
+			label: 'iOS'
+		},
+		{
+			color: '#0063bf',
+			label: 'Android'
+		},
+		{
+			color: '#bf2d00',
+			label: 'Unity'
+		}
+	]}
 />
