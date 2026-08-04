@@ -41,7 +41,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		position: relative;
+		position: absolute;
+		z-index: 100;
 
 		background-color: var(--header-bg-color);
 

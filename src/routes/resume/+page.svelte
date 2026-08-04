@@ -19,6 +19,7 @@
 <style lang="scss">
 	.container {
 		margin: 3rem auto;
+		container-type: inline-size;
 	}
 
 	.row {
@@ -29,7 +30,7 @@
 	}
 
 	embed {
-		width: 100%;
-		height: 90vh;
+		width: 100cqw;
+		height: 130cqw;
 	}
 </style>

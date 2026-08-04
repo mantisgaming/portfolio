@@ -17,7 +17,12 @@
 </main>
 
 <style lang="scss">
-	:global(:root) {
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	:global(body) {
+		
 		font-family:
 			'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
 			sans-serif;
@@ -29,15 +34,8 @@
 		--page-width: 90%;
 
 		background-color: var(--header-bg-color);
-	}
 
-	:global(*) {
-		box-sizing: border-box;
-	}
-
-	:global(body) {
 		margin: 0;
-		background-color: var(--bg-color);
 		min-height: 100vh;
 	}
 
@@ -46,7 +44,12 @@
 	}
 
 	main {
-		width: var(--page-width);
-		margin: 0 auto;
+		width: 100%;
+		min-height: 100vh;
+		position: absolute;
+		top: 0;
+		padding: 5rem calc((100vw - var(--page-width)) / 2) 0;
+		background-color: var(--bg-color);
+		z-index: 10;
 	}
 </style>
