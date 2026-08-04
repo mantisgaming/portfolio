@@ -18,11 +18,22 @@
 		<div class="row" style:justify-content="space-between">
 			<h2>{project.title}</h2>
 			<p>Team Size: {project.teamSize}</p>
+			{#if project.roles.length == 1}
+				<p>Role: {project.roles[0]}</p>
+			{:else if project.roles.length > 1}
+				<p>
+					Roles: {#each project.roles as role, i (role)}
+						{#if i > 0},
+						{/if}
+						{role}
+					{/each}
+				</p>
+			{/if}
 		</div>
 		<p>{project.brief}</p>
 		{#if project.tags.length > 0}
 			<div class="row">
-				{#each project.tags as tag (tag.label)}
+				{#each project.tags as tag (tag)}
 					<p class="tag" style:--tag-color={tag.color}>{tag.label}</p>
 				{/each}
 			</div>

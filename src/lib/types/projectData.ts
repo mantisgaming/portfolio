@@ -4,6 +4,7 @@ export interface ProjectData {
 	thumbnail: { src: string; alt: string };
 	title: string;
 	teamSize: number;
+	roles: string[];
 	brief: string;
 	body: string;
 	tags: Tag[];

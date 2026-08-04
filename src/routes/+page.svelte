@@ -31,6 +31,7 @@
 				label: 'Unity'
 			}
 		],
+		roles: ['Producer', 'Programmer'],
 		brief:
 			'Fishy Missile is a casual arcade mobile game where players use tilt controls to collect scrap from the ocean to build a rocket and blow up the moon.',
 		body: 'Nothing yet'
