@@ -28,6 +28,7 @@
 	</div>
 	<div class={`hamburger${hamburgerVisible ? '' : ' hidden'}`}>
 		<hr />
+		<a href={resolve('/')} onclick={hideHamburger}>Projects</a>
 		<a href={resolve('/about')} onclick={hideHamburger}>About</a>
 		<a href={resolve('/resume')} onclick={hideHamburger}>Resume</a>
 	</div>
@@ -70,6 +71,7 @@
 
 	.main-content {
 		width: 100%;
+		height: 6rem;
 		position: relative;
 
 		> * {
