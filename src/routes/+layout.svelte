@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.png';
+	import Footer from '$lib/components/footer.svelte';
 	import Nav from '$lib/components/nav.svelte';
 
 	let { children } = $props();
@@ -15,6 +16,7 @@
 <main>
 	{@render children()}
 </main>
+<Footer />
 
 <style lang="scss">
 	:global(*) {
@@ -47,9 +49,22 @@
 		min-height: 100vh;
 		position: relative;
 		top: 0;
-		padding: 5rem calc((100vw - var(--page-width)) / 2) 0;
+		--main-padding: calc((100vw - var(--page-width)) / 2);
+		padding: calc(6rem + var(--main-padding)) var(--main-padding) var(--main-padding);
 		background-color: var(--bg-color);
 		z-index: 10;
 		display: flow-root;
+
+		:global(& > *:first-child) {
+			margin-top: 0;
+		}
+
+		:global(& > *:last-child) {
+			margin-bottom: 0;
+		}
+
+		:global(h1, h2, h3) {
+			text-align: center;
+		}
 	}
 </style>
