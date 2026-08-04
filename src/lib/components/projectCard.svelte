@@ -63,8 +63,10 @@
 
 		transition-duration: 0.25s;
 
-		&:hover {
-			transform: scale(105%);
+		@media screen and (hover: hover) {
+			&:hover {
+				transform: scale(105%);
+			}
 		}
 	}
 
