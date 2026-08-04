@@ -1,6 +1,6 @@
 <script>
 	import GameCard from '$lib/components/gameCard.svelte';
-	import fishyMissileIcon from '$lib/assets/fishy-missile.png';
+	import fishyMissileIcon from '$lib/assets/fishy-missile.jpg';
 </script>
 
 <svelte:head>
