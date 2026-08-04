@@ -7,7 +7,7 @@
 </svelte:head>
 
 <ProjectCard
-	// href="/project/fishy-missile"
+	href="/project/fishy-missile"
 	project={{
 		title: 'Fishy Missile',
 		teamSize: 7,
@@ -36,6 +36,10 @@
 			{
 				color: '#a32ec7',
 				label: 'Procedural Generation'
+			},
+			{
+				color: '#a32ec7',
+				label: 'Monetized (ads)'
 			}
 		],
 		roles: ['Producer', 'Programmer'],
@@ -44,7 +48,7 @@
 	}}
 />
 <ProjectCard
-	// href="/project/treasure-of-the-sierra-madre"
+	href="/project/treasure-of-the-sierra-madre"
 	project={{
 		title: 'Treasure of the Sierra Madre',
 		teamSize: 6,
@@ -79,7 +83,11 @@
 			},
 			{
 				color: '#a32ec7',
-				label: 'Multiplayer'
+				label: 'Network Multiplayer'
+			},
+			{
+				color: '#a32ec7',
+				label: 'Websockets'
 			},
 			{
 				color: '#a32ec7',
@@ -92,7 +100,7 @@
 	}}
 />
 <ProjectCard
-	// href="/project/multiplayer-fruit-ninja"
+	href="/project/multiplayer-fruit-ninja"
 	project={{
 		title: 'Multiplayer Fruit Ninja',
 		teamSize: 1,
@@ -116,6 +124,10 @@
 			{
 				color: '#a32ec7',
 				label: 'Network Multiplayer'
+			},
+			{
+				color: '#a32ec7',
+				label: 'Latency Compensation'
 			},
 			{
 				color: '#a32ec7',

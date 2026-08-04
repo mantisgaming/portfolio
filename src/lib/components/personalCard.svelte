@@ -10,9 +10,9 @@
 			<p>Systems Programmer</p>
 		</div>
 		<p>
-			I recently graduated from WPI with a double major in Interactive Media & Game Design and
-			Computer Science. My primary focus is on technical game programming, though I am knowledgeable
-			in all fields of game development.
+			I recently graduated from WPI with a double major in "Interactive Media & Game Development"
+			and "Computer Science". My primary focus is on technical game programming, though I am
+			knowledgeable in all fields of game development.
 		</p>
 	</div>
 </div>
