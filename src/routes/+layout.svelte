@@ -20,6 +20,14 @@
 		font-family:
 			'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
 			sans-serif;
+
+		--bg-color: #a1a1a1;
+		--color: #1a1a1a;
+		--header-bg-color: #3a3a3a;
+		--header-color: #ececec;
+		--page-width: 90%;
+
+		background-color: var(--header-bg-color);
 	}
 
 	:global(*) {
@@ -27,19 +35,13 @@
 	}
 
 	:global(body) {
-		--bg-color: #a1a1a1;
-		--color: #1a1a1a;
-		--header-bg-color: #3a3a3a;
-		--header-color: #ececec;
-		--page-width: 90%;
-
 		margin: 0;
 		background-color: var(--bg-color);
+		min-height: 100vh;
 	}
 
 	:global(a, p) {
 		color: var(--color);
-		font-weight: bold;
 	}
 
 	main {
