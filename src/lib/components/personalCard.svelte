@@ -18,7 +18,7 @@
 		text-align: center;
 	}
 
-	:has(+.subtitle) {
+	:has(+ .subtitle) {
 		margin-bottom: 0;
 	}
 </style>

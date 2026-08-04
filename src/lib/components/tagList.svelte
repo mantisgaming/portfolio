@@ -13,7 +13,7 @@
 		{#each tags as tag (tag)}
 			<li class="tag" style:--tag-color={tag.color}>{tag.label}</li>
 		{/each}
-    </ul>
+	</ul>
 {/if}
 
 <style lang="scss">
@@ -23,8 +23,8 @@
 		gap: 0.5rem;
 		flex-wrap: wrap;
 		align-items: baseline;
-        padding: 0;
-        list-style: none;
+		padding: 0;
+		list-style: none;
 	}
 
 	.tag {
@@ -35,7 +35,7 @@
 
 		padding: 0.25rem;
 		border-radius: 0.5rem;
-        
+
 		margin: 0;
 	}
 </style>
