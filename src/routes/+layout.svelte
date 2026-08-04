@@ -45,10 +45,11 @@
 	main {
 		width: 100%;
 		min-height: 100vh;
-		position: absolute;
+		position: relative;
 		top: 0;
 		padding: 5rem calc((100vw - var(--page-width)) / 2) 0;
 		background-color: var(--bg-color);
 		z-index: 10;
+		display: flow-root;
 	}
 </style>
