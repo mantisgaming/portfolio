@@ -40,8 +40,7 @@
 		],
 		roles: ['Producer', 'Programmer'],
 		brief:
-			'Fishy Missile is a casual arcade mobile game where players use tilt controls to collect scrap from the ocean to build a rocket and blow up the moon.',
-		body: 'Nothing yet'
+			'Fishy Missile is a casual arcade mobile game where players use tilt controls to collect scrap from the ocean to build a rocket and blow up the moon.'
 	}}
 />
 <ProjectCard
@@ -49,7 +48,10 @@
 	project={{
 		title: 'Treasure of the Sierra Madre',
 		teamSize: 6,
-		thumbnail: { src: '/projects/treasure-of-the-sierra-madre/thumbnail.jpg', alt: 'Treasure of the Sierra Madre thumbnail' },
+		thumbnail: {
+			src: '/projects/treasure-of-the-sierra-madre/thumbnail.jpg',
+			alt: 'Treasure of the Sierra Madre thumbnail'
+		},
 		tags: [
 			{
 				color: '#37a600',
@@ -86,7 +88,42 @@
 		],
 		roles: ['Producer', 'Programmer'],
 		brief:
-			'Treasure of the Sierra Madre is a digital board game played like Jackbox where it\'s not a question of "if" but "when" to betray your friends.',
-		body: 'Nothing yet'
+			'Treasure of the Sierra Madre is a digital board game played like Jackbox where it\'s not a question of "if" but "when" to betray your friends.'
+	}}
+/>
+<ProjectCard
+	// href="/project/multiplayer-fruit-ninja"
+	project={{
+		title: 'Multiplayer Fruit Ninja',
+		teamSize: 1,
+		thumbnail: {
+			src: '/projects/multiplayer-fruit-ninja/thumbnail.jpg',
+			alt: 'Multiplayer Fruit Ninja thumbnail'
+		},
+		tags: [
+			{
+				color: '#0063bf',
+				label: 'PC'
+			},
+			{
+				color: '#bf2d00',
+				label: 'C++'
+			},
+			{
+				color: '#bf2d00',
+				label: 'SFML'
+			},
+			{
+				color: '#a32ec7',
+				label: 'Network Multiplayer'
+			},
+			{
+				color: '#a32ec7',
+				label: 'Custom Game Engine'
+			}
+		],
+		roles: ['Programmer'],
+		brief:
+			'Multiplayer Fruit ninja is a practice project for developing a C++ game engine with network multiplayer capability using only system calls and SFML for graphics.'
 	}}
 />

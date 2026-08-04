@@ -6,6 +6,5 @@ export interface ProjectData {
 	teamSize: number;
 	roles: string[];
 	brief: string;
-	body: string;
 	tags: Tag[];
 }

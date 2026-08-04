@@ -15,8 +15,8 @@
 <svelte:element this={href ? 'a' : 'div'} class="card" href={href ? resolve(href) : undefined}>
 	<img src={project.thumbnail?.src} alt={project.thumbnail?.alt} />
 	<div class="body">
+		<h2>{project.title}</h2>
 		<div class="row" style:justify-content="space-between">
-			<h2>{project.title}</h2>
 			<p>Team Size: {project.teamSize}</p>
 			{#if project.roles.length == 1}
 				<p>Role: {project.roles[0]}</p>
