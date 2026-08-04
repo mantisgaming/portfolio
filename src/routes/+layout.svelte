@@ -8,6 +8,7 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<script src="https://kit.fontawesome.com/03ca4d4b08.js" crossorigin="anonymous"></script>
+	<meta name="theme-color" content="#3a3a3a" />
 </svelte:head>
 
 <Nav />
