@@ -47,14 +47,15 @@
 
 		transition-duration: 0.25s;
 
-		@media screen and (hover: hover) {
-			&:hover {
-				transform: scale(105%);
-			}
-		}
 
 		img {
 			border-radius: 1rem;
+		}
+	}
+	
+	@media screen and (hover: hover) {
+		a.card:hover {
+			transform: scale(105%);
 		}
 	}
 
