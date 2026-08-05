@@ -49,22 +49,34 @@
 		min-height: 100vh;
 		position: relative;
 		top: 0;
-		--main-padding: calc((100vw - var(--page-width)) / 2);
-		padding: calc(6rem + var(--main-padding)) var(--main-padding) var(--main-padding);
+		padding: 6rem 0 0 0;
 		background-color: var(--bg-color);
 		z-index: 10;
 		display: flow-root;
 
-		:global(& > *:first-child) {
-			margin-top: 0;
-		}
-
-		:global(& > *:last-child) {
-			margin-bottom: 0;
-		}
-
 		:global(h1, h2, h3) {
 			text-align: center;
+		}
+
+		:global(section) {
+			background-color: var(--header-bg-color);
+			padding: 2rem;
+
+			:global(> *:first-child) {
+				margin-top: 0;
+			}
+
+			:global(> *:last-child) {
+				margin-bottom: 0;
+			}
+
+			:global(*) {
+				color: var(--header-color);
+			}
+
+			&:nth-of-type(2n) {
+				background-color: hsl(from var(--header-bg-color) h s calc(l * 1.5));
+			}
 		}
 	}
 </style>
