@@ -8,7 +8,7 @@
 		href,
 		image
 	}: {
-		children: Snippet;
+		children?: Snippet;
 		href?: Pathname;
 		image?: {
 			src: string;
@@ -22,7 +22,7 @@
 		<img src={image?.src} alt={image?.alt} />
 	{/if}
 	<div class="content">
-		{@render children()}
+		{@render children?.()}
 	</div>
 </svelte:element>
 
@@ -31,7 +31,7 @@
 		background-color: var(--header-bg-color);
 		border-radius: 2rem;
 		padding: 2rem;
-		margin: 3rem auto;
+		margin: 2rem;
 
 		box-shadow: 0.5rem 0.5rem 2rem black;
 
