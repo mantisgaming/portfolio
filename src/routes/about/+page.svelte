@@ -112,7 +112,8 @@
 		(PLC) kit. The kit was a simple home security system with a speaker, a keypad, a simple display,
 		and some magnetic reed switches. The goal was to create a system that would alarm if a door was
 		opened and a code was not entered within a set time period. While I did not complete this
-		project, it introduced me to my first programming language, BASIC.
+		project, it introduced me to my first programming language, BASIC, and I enjoyed creating simple
+		music with the speaker.
 	</p>
 	<p>
 		Around 2010, Minecraft modding had inspired me to try programming in Java. I created a simple
