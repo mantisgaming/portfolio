@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Group 1 - Final Project</title>
+
+		<script id="vshader" type="x-shader/x-vertex">
+			precision mediump float;
+
+			// vertex attributes
+			attribute vec3 a_Point;
+			attribute vec3 a_Color;
+			attribute vec2 a_UV;
+			attribute vec3 a_Normal;
+			varying vec3 v_Point;
+			varying vec3 v_Color;
+			varying vec2 v_UV;
+			varying vec3 v_WorldNormal;
+
+			// model info
+			uniform mat4 u_VPMat;
+			uniform mat3 u_NormalMat;
+			uniform mat4 u_ModelMat;
+
+			// skeleton info
+			uniform mat4 u_bone_0;
+			uniform mat4 u_bone_1;
+			uniform mat4 u_bone_2;
+			uniform mat4 u_bone_3;
+			attribute vec4 a_boneWeights;
+
+			// material info
+			attribute float a_Shinyness;
+			attribute vec3 a_DiffuseColor;
+			attribute vec3 a_SpecularColor;
+			attribute float a_UseDiffuseTexture;
+			attribute float a_UseEnvironmentMap;
+			attribute float a_DoRefraction;
+			attribute float a_Opacity;
+
+			varying float v_Shinyness;
+			varying vec3 v_DiffuseColor;
+			varying vec3 v_SpecularColor;
+			varying float v_UseDiffuseTexture;
+			varying float v_UseEnvironmentMap;
+			varying float v_DoRefraction;
+			varying float v_Opacity;
+
+			void main() {
+			  // system attributes
+			  vec4 point = vec4(a_Point, 1);
+			  vec4 normal = vec4(a_Normal, 0);
+
+			  mat4 deformedPoints = mat4(
+			    u_bone_0 * point,
+			    u_bone_1 * point,
+			    u_bone_2 * point,
+			    u_bone_3 * point
+			  );
+
+			  mat4 deformedNormals = mat4(
+			    u_bone_0 * normal,
+			    u_bone_1 * normal,
+			    u_bone_2 * normal,
+			    u_bone_3 * normal
+			  );
+
+			  float remainingWeight = 1.0 - dot(vec4(1, 1, 1, 1), a_boneWeights);
+
+			  vec4 finalPoint = remainingWeight * point + deformedPoints * a_boneWeights;
+			  vec4 finalNormal = normalize(remainingWeight * normal + deformedNormals * a_boneWeights);
+
+			  gl_Position = u_VPMat * u_ModelMat * finalPoint;
+
+			  // varying attributes
+			  v_Color = a_Color;
+			  v_Point = (u_ModelMat * finalPoint).xyz;
+			  v_UV = a_UV;
+			  v_WorldNormal = u_NormalMat * finalNormal.xyz;
+
+			  // material attributes
+			  v_Shinyness = a_Shinyness;
+			  v_DiffuseColor = a_DiffuseColor;
+			  v_SpecularColor = a_SpecularColor;
+			  v_UseDiffuseTexture = a_UseDiffuseTexture;
+			  v_UseEnvironmentMap = a_UseEnvironmentMap;
+			  v_DoRefraction = a_DoRefraction;
+			  v_Opacity = a_Opacity;
+			}
+		</script>
+
+		<script id="fshader" type="x-shader/x-fragment">
+			// preprocessor constants
+			#ifndef point_light_count
+			#define point_light_count 8
+			#endif
+
+			precision mediump float;
+
+			// fragment attributes
+			varying vec3 v_Point;
+			varying vec3 v_Color;
+			varying vec2 v_UV;
+			varying vec3 v_WorldNormal;
+
+			// camera info
+			uniform vec3 u_CPoint;
+
+			// ambient light info
+			uniform vec3 u_ALColor;
+
+			// directional light info
+			uniform vec3 u_DLColor;
+			uniform vec3 u_DLDirection;
+
+			// point light info
+			uniform vec3 u_PLColor[point_light_count];
+			uniform vec3 u_PLPoint[point_light_count];
+			uniform vec3 u_PLDirection[point_light_count];
+			uniform float u_PLFactor[point_light_count];
+
+			// material info
+			varying float v_Shinyness;
+			varying vec3 v_DiffuseColor;
+			varying vec3 v_SpecularColor;
+			varying float v_UseDiffuseTexture;
+			varying float v_UseEnvironmentMap;
+			varying float v_DoRefraction;
+			varying float v_Opacity;
+
+			uniform sampler2D u_DiffuseTexture;
+			uniform samplerCube u_EnvironmentMap;
+
+			// Calculate the intensity of the diffuse lighting
+			float diffuseReflection(
+			  in vec3 surfaceNormal,
+			  in vec3 lightDirection) {
+
+			  return clamp(dot(surfaceNormal, -lightDirection), 0.0, 1.0);
+			}
+
+			vec3 getReflection(
+			  in vec3 surfaceNormal,
+			  in vec3 vector) {
+			  return vector -
+			    (
+			      surfaceNormal * 2.0 *
+			      dot(vector, surfaceNormal)
+			    );
+			}
+
+			// Calculate the intensity of the specular reflection
+			float specularReflection(
+			  in vec3 surfaceNormal,
+			  in vec3 lightDirection,
+			  in vec3 cameraDirection,
+			  in float shinyness) {
+
+			  // Calculate the direction light reflects towards
+			  vec3 specularDirection = getReflection(surfaceNormal, lightDirection);
+
+			  // Compare the reflection direction to the
+			  // camera direction and add shinyness
+			  return pow(
+			    clamp(
+			      dot(specularDirection, -cameraDirection),
+			      0.0, 1.0
+			    ), shinyness);
+			}
+
+			// Helper function for inverse square falloff
+			float invSqr(in float distance) {
+			  return 1.0 / (distance * distance);
+			}
+
+			// Calculate the diffuse color for a given light
+			vec3 calcDiffuse(
+			  in vec3 lightColor,
+			  in vec3 surfaceColor,
+			  in vec3 surfaceNormal,
+			  in vec3 lightDirection) {
+
+			  return lightColor *
+			    surfaceColor *
+			    diffuseReflection(surfaceNormal, lightDirection);
+			}
+
+			// Calculate the specular color for a given light
+			vec3 calcSpecular(
+			  in vec3 lightColor,
+			  in vec3 surfaceNormal,
+			  in vec3 lightDirection,
+			  in vec3 cameraDirection,
+			  in float shinyness) {
+
+			  return lightColor *
+			    specularReflection(surfaceNormal, lightDirection, cameraDirection, shinyness);
+			}
+
+			void main() {
+			  // normalize the world normals because they were interpolated linearly
+			  vec3 normal = normalize(v_WorldNormal);
+			  // calculation the direction the camera is pointing in
+			  vec3 camDir = normalize(v_Point - u_CPoint);
+			  vec3 texCol = vec3(1,1,1);
+			  vec3 envCol = vec3(0,0,0);
+
+			  if (v_UseEnvironmentMap > 0.5) {
+			    vec3 reflection = getReflection(camDir, normal);
+			    envCol = textureCube(u_EnvironmentMap, reflection).rgb;
+			  }
+
+			  // use texture
+			  if (v_UseDiffuseTexture > 0.5) {
+			    texCol = texture2D(u_DiffuseTexture, v_UV).rgb;
+			  }
+
+			  vec3 diffuseCol = v_Color * v_DiffuseColor * texCol;
+
+			  // ambient light
+			  vec3 color = u_ALColor * diffuseCol + envCol;
+
+			  // directional light diffuse
+			  color += calcDiffuse(
+			    u_DLColor,
+			    diffuseCol,
+			    normal,
+			    normalize(u_DLDirection));
+
+			  // directional light specular
+			  color += calcSpecular(
+			    u_DLColor * v_SpecularColor,
+			    normal,
+			    normalize(u_DLDirection),
+			    camDir,
+			    v_Shinyness);
+
+			  // point lights
+			  for (int i = 0; i < point_light_count; i++) {
+			    // point light direction
+			    vec3 PLDirection = v_Point - u_PLPoint[i];
+			    float falloff = invSqr(length(PLDirection));
+			    PLDirection = normalize(PLDirection);
+
+			    // limit angle of spot light
+			    if (dot(PLDirection, normalize(u_PLDirection[i])) > u_PLFactor[i]) {
+			      // point light diffuse
+			      color += calcDiffuse(
+			        u_PLColor[i],
+			        diffuseCol,
+			        normal,
+			        PLDirection) * falloff;
+
+			      // directional light specular
+			      color += calcSpecular(
+			        u_PLColor[i] * v_SpecularColor,
+			        normal,
+			        PLDirection,
+			        camDir,
+			        v_Shinyness) * falloff;
+			    }
+			  }
+
+			  // if we are using refraction, ignore the rest of the shading and add transparency
+			  if (v_DoRefraction > 0.5) {
+			    color = textureCube(u_EnvironmentMap, refract(camDir, normal, 1.5)).rgb;
+			  }
+
+			  // Assign color for the fragment
+			  gl_FragColor = vec4(color, v_Opacity);
+			}
+		</script>
+
+		<!-- lib/util files -->
+		<script src="lib/webgl-utils.js"></script>
+		<script src="lib/initShaders.js"></script>
+		<script src="lib/MV.js"></script>
+		<script src="lib/spline.js"></script>
+		<!-- Exhibit files -->
+		<script src="exhibits/rollercoaster.js"></script>
+		<script src="exhibits/robotarm.js"></script>
+		<script src="exhibits/aquarium.js"></script>
+		<script src="exhibits/newtonscradle.js"></script>
+		<!-- Main file -->
+		<script src="final-project.js"></script>
+
+		<style>
+			* {
+				margin: 0;
+				text-align: center;
+			}
+			canvas {
+				display: block;
+			}
+			:root {
+				background-color: #101010;
+			}
+		</style>
+	</head>
+
+	<body onload="main()">
+		<canvas id="webgl" width="1280" height="720">
+			Please use a browser that supports the "canvas" tag.
+		</canvas>
+	</body>
+</html>

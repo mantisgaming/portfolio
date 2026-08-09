@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ShowcaseEmbed from '$lib/components/ShowcaseEmbed.svelte';
 	import PersonalCard from '$lib/components/personalCard.svelte';
 	import TagList from '$lib/components/tagList.svelte';
 </script>
@@ -133,3 +134,7 @@
 		Media and Game Development".
 	</p>
 </section>
+
+<ShowcaseEmbed src="/projects/computer-graphics-animation/animation/final-project.html" />
+<ShowcaseEmbed src="/projects/computer-graphics-animation/graphics-2/index.html" />
+<ShowcaseEmbed src="/projects/computer-graphics-animation/graphics-3/index.html" height={762} />
