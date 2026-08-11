@@ -75,6 +75,16 @@
 				}
 				background-color: hsl(from var(--header-bg-color) h s calc(l * 1.5));
 			}
+
+			@media screen and (min-width: 900px) {
+				padding-left: calc((100% - 850px) / 2);
+				padding-right: calc((100% - 850px) / 2);
+			}
+
+			@media screen and (min-width: 1300px) {
+				padding-left: calc((100% - 1200px) / 2);
+				padding-right: calc((100% - 1200px) / 2);
+			}
 		}
 	}
 </style>

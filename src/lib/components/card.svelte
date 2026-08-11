@@ -40,7 +40,8 @@
 		background-color: var(--header-bg-color);
 		border-radius: 2rem;
 		padding: 2rem;
-		margin: 2rem 0;
+
+		container-type: inline-size;
 
 		box-shadow: 0.5rem 0.5rem 2rem black;
 
@@ -62,18 +63,9 @@
 			border-radius: 1rem;
 			width: 100%;
 		}
-
-		@media screen and (min-width: 600px) {
-			align-items: center;
-
-			img {
-				width: 30vw;
-				aspect-ratio: 1/1;
-			}
-		}
 	}
 
-	@media screen and (min-width: 600px) {
+	@container (min-width: 500px) {
 		.content {
 			grid-row: 1;
 			grid-column: 2;
@@ -82,6 +74,15 @@
 		.tag-list {
 			grid-row: 2;
 			grid-column: 1/3;
+		}
+
+		.card {
+			align-items: center;
+
+			img {
+				width: 30cqw;
+				aspect-ratio: 1/1;
+			}
 		}
 	}
 
