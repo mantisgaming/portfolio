@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { Pathname } from '$app/types';
+	import type { Tag } from '$lib/types/tag';
 	import type { Snippet } from 'svelte';
+	import TagList from './tagList.svelte';
 
 	const {
 		children,
 		href,
-		image
+		image,
+		tags = []
 	}: {
 		children?: Snippet;
 		href?: Pathname;
@@ -14,6 +17,7 @@
 			src: string;
 			alt: string;
 		};
+		tags?: Tag[];
 	} = $props();
 </script>
 
@@ -24,6 +28,11 @@
 	<div class="content">
 		{@render children?.()}
 	</div>
+	{#if tags.length > 0}
+		<div class="tag-list">
+			<TagList {tags} />
+		</div>
+	{/if}
 </svelte:element>
 
 <style lang="scss">
@@ -31,13 +40,15 @@
 		background-color: var(--header-bg-color);
 		border-radius: 2rem;
 		padding: 2rem;
-		margin: 2rem;
+		margin: 2rem 0;
 
 		box-shadow: 0.5rem 0.5rem 2rem black;
 
-		display: flex;
+		display: grid;
 		flex-direction: column;
-		gap: 2rem;
+		gap: 1rem;
+
+		columns: auto auto;
 
 		:global(*) {
 			color: var(--header-color);
@@ -49,6 +60,28 @@
 
 		img {
 			border-radius: 1rem;
+			width: 100%;
+		}
+
+		@media screen and (min-width: 600px) {
+			align-items: center;
+
+			img {
+				width: 30vw;
+				aspect-ratio: 1/1;
+			}
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+		.content {
+			grid-row: 1;
+			grid-column: 2;
+		}
+
+		.tag-list {
+			grid-row: 2;
+			grid-column: 1/3;
 		}
 	}
 

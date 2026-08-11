@@ -8,7 +8,9 @@
 	<title>Max Allen | About</title>
 </svelte:head>
 
-<PersonalCard />
+<section>
+	<PersonalCard />
+</section>
 
 <section>
 	<h2>Skills</h2>
@@ -135,6 +137,6 @@
 	</p>
 </section>
 
-<ShowcaseEmbed src="/projects/computer-graphics-animation/animation/final-project.html" />
 <ShowcaseEmbed src="/projects/computer-graphics-animation/graphics-2/index.html" />
 <ShowcaseEmbed src="/projects/computer-graphics-animation/graphics-3/index.html" height={762} />
+<ShowcaseEmbed src="/projects/computer-graphics-animation/animation/final-project.html" />
