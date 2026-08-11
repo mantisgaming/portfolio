@@ -22,7 +22,7 @@
 			<h1>Max Allen</h1>
 			<p>Systems Programmer</p>
 		</a>
-		<button onclick={toggleHamburger} aria-label="Show Menu">
+		<button class="hamburger-button" onclick={toggleHamburger} aria-label="Show Menu">
 			<i class="fa-solid fa-bars"></i>
 		</button>
 	</div>
@@ -66,6 +66,10 @@
 			height: 1rem;
 			background-color: transparent;
 			background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+		}
+
+		@media screen and (min-width: 600px) {
+			flex-direction: row;
 		}
 	}
 
@@ -146,6 +150,37 @@
 			height: 1rem;
 			background-color: transparent;
 			background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+		}
+
+		@media screen and (min-width: 600px) {
+			position: static;
+			display: contents;
+
+			hr {
+				display: none;
+			}
+
+			&.hidden {
+				height: unset;
+			}
+
+			&::after {
+				display: none;
+			}
+
+			> * {
+				position: static;
+				flex-basis: 8rem;
+				flex-grow: 0;
+				flex-shrink: 0;
+				justify-self: right;
+			}
+		}
+	}
+
+	.hamburger-button {
+		@media screen and (min-width: 600px) {
+			display: none;
 		}
 	}
 </style>

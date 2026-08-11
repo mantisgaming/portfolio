@@ -16,19 +16,19 @@
 	{#if showProjects}
 		<h3>WebGL Graphics Engine</h3>
 		<embed
-			src="/projects/computer-graphics-animation/graphics-2/index.html"
+			src="/project/computer-graphics-animation/graphics-2/index.html"
 			width={1280}
 			height={720}
 		/>
 		<h3>WebGL Raytracing</h3>
 		<embed
-			src="/projects/computer-graphics-animation/graphics-3/index.html"
+			src="/project/computer-graphics-animation/graphics-3/index.html"
 			width={1280}
 			height={762}
 		/>
 		<h3>WebGL Animation</h3>
 		<embed
-			src="/projects/computer-graphics-animation/animation/final-project.html"
+			src="/project/computer-graphics-animation/animation/final-project.html"
 			width={1280}
 			height={720}
 		/>
@@ -44,6 +44,9 @@
 <style>
 	embed {
 		display: block;
-		margin: 1rem auto;
+		margin: 1rem 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+		position: relative;
 	}
 </style>
