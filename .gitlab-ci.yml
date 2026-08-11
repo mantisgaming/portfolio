@@ -18,6 +18,13 @@
 
 image: node:latest
 
+default:
+  retry:
+    max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+
 stages: # List of stages for jobs, and their order of execution
   - install
   - build

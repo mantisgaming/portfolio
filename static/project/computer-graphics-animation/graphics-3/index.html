@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>CS-543 | Project 3</title>
+		<link rel="icon" href="../favicon.png" />
+		<script defer src="main.js"></script>
+        <style>
+            * {
+                margin: 0;
+                text-align: center;
+            }
+			canvas {
+				display: block;
+			}
+            :root {
+                background-color: #101010;
+            }
+        </style>
+	</head>
+	<body>
+		<div>
+			<canvas id="webgl" width="1280" height="720">
+				Please use a browser that supports the "canvas" tag.
+			</canvas>
+		</div>
+		<form id="buttons" enctype="multipart/form-data" style="text-align: center; margin-top: 10px;">
+			<button type="button" onclick="app.setSceneIndex(0)">Image 1</button>
+			<button type="button" onclick="app.setSceneIndex(1)">Image 2</button>
+			<button type="button" onclick="app.setSceneIndex(2)">Image 3</button>
+		</form>
+	</body>
+</html>

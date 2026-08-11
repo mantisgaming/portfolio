@@ -2,7 +2,6 @@
 	import type { Pathname } from '$app/types';
 	import type { ProjectData } from '$lib/types/projectData';
 	import Card from './card.svelte';
-	import TagList from './tagList.svelte';
 
 	const {
 		href,
@@ -13,7 +12,7 @@
 	} = $props();
 </script>
 
-<Card {href} image={project.thumbnail}>
+<Card {href} tags={project.tags} image={project.thumbnail}>
 	<h2>{project.title}</h2>
 	<div class="row" style:justify-content="space-between">
 		<p>Team Size: {project.teamSize}</p>
@@ -30,7 +29,6 @@
 		{/if}
 	</div>
 	<p>{project.brief}</p>
-	<TagList tags={project.tags} />
 </Card>
 
 <style lang="scss">

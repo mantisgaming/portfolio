@@ -25,6 +25,7 @@
 		align-items: baseline;
 		padding: 0;
 		list-style: none;
+		margin: 0;
 	}
 
 	.tag {

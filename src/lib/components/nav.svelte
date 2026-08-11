@@ -42,7 +42,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		position: fixed;
+		position: relative;
 		z-index: 100;
 
 		background-color: var(--header-bg-color);
@@ -107,7 +107,9 @@
 		width: 100%;
 
 		display: block;
-		position: relative;
+		position: absolute;
+		top: 100%;
+		z-index: 150;
 
 		background-color: inherit;
 
@@ -133,6 +135,17 @@
 			margin: 0.5rem auto;
 			border-style: dashed;
 			opacity: 50%;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 100%;
+			width: 100%;
+			height: 1rem;
+			background-color: transparent;
+			background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
 		}
 	}
 </style>

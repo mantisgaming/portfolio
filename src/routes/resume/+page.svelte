@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
-	import Card from '$lib/components/card.svelte';
 
 	const resumePath: string = '/max-allen-resume.pdf';
 </script>
@@ -9,7 +8,7 @@
 	<title>Max Allen | Resume</title>
 </svelte:head>
 
-<Card>
+<section>
 	<h1>Resume</h1>
 	<div class="row">
 		<a href={asset('/max-allen-resume.pdf')} target="_blank">Open in new tab</a>
@@ -18,7 +17,7 @@
 	<div class="container">
 		<embed src={resumePath} width="100%" height="500px" type="application/pdf" />
 	</div>
-</Card>
+</section>
 
 <style lang="scss">
 	.container {

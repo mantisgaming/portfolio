@@ -46,10 +46,9 @@
 
 	main {
 		width: 100%;
-		min-height: 100vh;
 		position: relative;
 		top: 0;
-		padding: 6rem 0 0 0;
+		padding: 0;
 		background-color: var(--bg-color);
 		z-index: 10;
 		display: flow-root;
@@ -59,7 +58,7 @@
 		}
 
 		:global(section) {
-			background-color: var(--header-bg-color);
+			background-color: var(--bg-color);
 			padding: 2rem;
 
 			:global(> *:first-child) {
@@ -70,11 +69,10 @@
 				margin-bottom: 0;
 			}
 
-			:global(*) {
-				color: var(--header-color);
-			}
-
 			&:nth-of-type(2n) {
+				:global(*) {
+					color: var(--header-color);
+				}
 				background-color: hsl(from var(--header-bg-color) h s calc(l * 1.5));
 			}
 		}
