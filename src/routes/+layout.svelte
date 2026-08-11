@@ -46,7 +46,6 @@
 
 	main {
 		width: 100%;
-		min-height: 100vh;
 		position: relative;
 		top: 0;
 		padding: 0;

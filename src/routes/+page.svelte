@@ -144,7 +144,7 @@
 		href="/project/computer-graphics-animation"
 		project={{
 			title: 'Computer Graphics & Animation',
-			teamSize: "1-3",
+			teamSize: '1-3',
 			thumbnail: {
 				src: '/project/computer-graphics-animation/thumbnail.jpg',
 				alt: 'Computer graphics & animation thumbnail'
