@@ -136,7 +136,7 @@
 			border-style: dashed;
 			opacity: 50%;
 		}
-		
+
 		&::after {
 			content: '';
 			display: block;

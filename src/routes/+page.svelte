@@ -12,7 +12,7 @@
 		project={{
 			title: 'Fishy Missile',
 			teamSize: 7,
-			thumbnail: { src: '/projects/fishy-missile/thumbnail.jpg', alt: 'Fishy Missile icon' },
+			thumbnail: { src: '/project/fishy-missile/thumbnail.jpg', alt: 'Fishy Missile icon' },
 			tags: [
 				{
 					color: '#37a600',
@@ -54,7 +54,7 @@
 			title: 'Treasure of the Sierra Madre',
 			teamSize: 6,
 			thumbnail: {
-				src: '/projects/treasure-of-the-sierra-madre/thumbnail.jpg',
+				src: '/project/treasure-of-the-sierra-madre/thumbnail.jpg',
 				alt: 'Treasure of the Sierra Madre thumbnail'
 			},
 			tags: [
@@ -106,7 +106,7 @@
 			title: 'Multiplayer Fruit Ninja',
 			teamSize: 1,
 			thumbnail: {
-				src: '/projects/multiplayer-fruit-ninja/thumbnail.jpg',
+				src: '/project/multiplayer-fruit-ninja/thumbnail.jpg',
 				alt: 'Multiplayer Fruit Ninja thumbnail'
 			},
 			tags: [
@@ -138,6 +138,46 @@
 			roles: ['Programmer'],
 			brief:
 				'Multiplayer Fruit ninja is a practice project for developing a C++ game engine with network multiplayer capability using only system calls and SFML for graphics.'
+		}}
+	/>
+	<ProjectCard
+		href="/project/computer-graphics-animation"
+		project={{
+			title: 'Computer Graphics & Animation',
+			teamSize: "1-3",
+			thumbnail: {
+				src: '/project/computer-graphics-animation/thumbnail.jpg',
+				alt: 'Computer graphics & animation thumbnail'
+			},
+			tags: [
+				{
+					color: '#0063bf',
+					label: 'Web'
+				},
+				{
+					color: '#bf2d00',
+					label: 'JavaScript'
+				},
+				{
+					color: '#bf2d00',
+					label: 'TypeScript'
+				},
+				{
+					color: '#bf2d00',
+					label: 'WebGL'
+				},
+				{
+					color: '#a32ec7',
+					label: 'Graphics Programming'
+				},
+				{
+					color: '#a32ec7',
+					label: 'Engine Programming'
+				}
+			],
+			roles: ['Programmer'],
+			brief:
+				'This is a set of 3 projects. The first is a demonstration of a graphics engine I wrote for WebGL, the second is a raytracer written in WebGL, and the third is an interactive museum of common animation techniques.'
 		}}
 	/>
 </section>
